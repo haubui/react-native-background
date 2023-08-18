@@ -13,9 +13,10 @@ public class Module extends ReactContextBaseJavaModule {
 
   private static final String DURATION_SHORT_KEY = "SHORT";
   private static final String DURATION_LONG_KEY = "LONG";
-
+  private ReactApplicationContext mReactContext;
   public Module(ReactApplicationContext reactContext) {
     super(reactContext);
+    mReactContext = reactContext;
   }
 
   @Override
@@ -33,6 +34,6 @@ public class Module extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void show(String message, int duration) {
-    Toast.makeText(getReactApplicationContext(), message, duration).show();
+    Toast.makeText(mReactContext, message, Toast.LENGTH_SHORT).show();
   }
 }
