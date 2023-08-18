@@ -34,6 +34,7 @@ public class Module extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void show(String message, int duration) {
+    System.out.println("Show message" +message);
     Toast.makeText(mReactContext, message, Toast.LENGTH_SHORT).show();
   }
 }
